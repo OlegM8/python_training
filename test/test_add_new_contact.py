@@ -12,12 +12,12 @@ def app(request):
 
 
 def test_add_new_contact(app):
-    app.login(email="eltrabajo@mail.ru", password="password123")
+    app.session.login(email="eltrabajo@mail.ru", password="password123")
     app.add_new_contact(Contact(f_name="test", l_name="test2", company="company test"))
-    app.logout()
+    app.session.logout()
 
 
 def test_add_new_empty_contact(app):
-    app.login( email="eltrabajo@mail.ru", password="password123")
+    app.session.login(email="eltrabajo@mail.ru", password="password123")
     app.add_new_contact(Contact(f_name="test", l_name="", company=""))
-    app.logout()
+    app.session.logout()
