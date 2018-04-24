@@ -1,7 +1,5 @@
 {
-<<<<<<< HEAD
-  "ff.py::UntitledTestCase::test_untitled_test_case": true
-=======
-  "mail1.py::mail1::test_mail1": true
->>>>>>> 71971bb6c880d4fd8e11b196b10f54d310c485d1
+  "1.py": true,
+  "ff.py::ff": true,
+  "ff.py::ff::test_ff": true
 }

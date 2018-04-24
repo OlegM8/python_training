@@ -1,7 +1,4 @@
 [
-<<<<<<< HEAD
-  "fitdog2.py::fitdog2::test_fitdog2"
-=======
-  "mail1.py::mail1::test_mail1"
->>>>>>> 71971bb6c880d4fd8e11b196b10f54d310c485d1
+  "test_add_new_contact.py::addd_new_contact::test_add_new_contact",
+  "test_add_new_contact.py::addd_new_contact::test_add_new_empty_contact"
 ]
