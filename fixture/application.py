@@ -1,17 +1,17 @@
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 from fixture.session import SessionHelper
 
 
 class Application:
 
     def __init__(self):
-        self.wd = WebDriver()
+        self.wd = webdriver.Chrome()
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
 
     def open_account_page(self):
         wd = self.wd
-        wd.find_element_by_link_text("Account").click()
+        wd.find_element_by_class_name("nav-account ").click()
 
     def add_new_contact(self, contact):
         wd = self.wd

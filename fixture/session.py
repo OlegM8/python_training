@@ -8,7 +8,8 @@ class SessionHelper:
     def logout(self):
         wd = self.app.wd
         self.app.open_account_page()
-        wd.find_element_by_css_selector("a.text-bold").click()
+        wd.implicitly_wait(10)
+        wd.find_element_by_link_text("Account").click()
 
     def login(self, email, password):
         wd = self.app.wd
