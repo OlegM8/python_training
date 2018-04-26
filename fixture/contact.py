@@ -24,6 +24,15 @@ class ContactHelper:
         # save new contact
         wd.find_element_by_css_selector("button.button-panel.button-save-contact ").click()
 
+    def delete_first(self):
+        wd = self.app.wd
+        self.open_address_book()
+        # select first contact
+        wd.find_element_by_xpath("//ul[@id='address-book-list']/li[1]").click()
+        # submit deletion
+        wd.find_element_by_xpath("//div[@class='button-label'][contains(text(),'Delete contact')]").click()
+        wd.find_element_by_xpath("//a[contains(@class,'button-modal-confirm')][contains(text(),'Yes, delete it!')]").click()
+
     def open_address_book(self):
         wd = self.app.wd
         wd.find_element_by_xpath("//ul[@class='main-nav']//a[.='Address Book']").click()

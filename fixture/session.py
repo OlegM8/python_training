@@ -10,6 +10,7 @@ class SessionHelper:
         self.open_account_page()
         wd.implicitly_wait(10)
         wd.find_element_by_link_text("Account").click()
+        wd.find_element_by_xpath("//a[@class='text-bold']").click()
 
     def login(self, email, password):
         wd = self.app.wd
