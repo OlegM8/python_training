@@ -7,7 +7,7 @@ class SessionHelper:
 
     def logout(self):
         wd = self.app.wd
-        self.app.open_account_page()
+        self.open_account_page()
         wd.implicitly_wait(10)
         wd.find_element_by_link_text("Account").click()
 
@@ -22,3 +22,7 @@ class SessionHelper:
         wd.find_element_by_name("password").clear()
         wd.find_element_by_name("password").send_keys(password)
         wd.find_element_by_name("action").click()
+
+    def open_account_page(self):
+        wd = self.app.wd
+        wd.find_element_by_class_name("nav-account ").click()
