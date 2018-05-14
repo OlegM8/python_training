@@ -16,7 +16,7 @@ class ContactHelper:
         # save new contact
         wd.find_element_by_css_selector("button.button-panel.button-save-contact ").click()
 
-    def fill_contact_form(self, contact):
+    def fill_contact_form(self, contact): # Contact(f_name="Edited name", l_name="Hui")
         wd = self.app.wd
         self.change_field("contact[firstname]", contact.f_name)
         self.change_field("contact[lastname]", contact.l_name)
