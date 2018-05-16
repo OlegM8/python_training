@@ -11,6 +11,13 @@ class Application:
         self.session = SessionHelper(self)
         self.contact = ContactHelper(self)
 
+    def is_valid(self):
+        try:
+            self.wd.current_url
+            return True
+        except:
+            return False
+
     def open_homepage(self):
         wd = self.wd
         wd.get("https://www.postable.com/")
