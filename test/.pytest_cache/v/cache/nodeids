@@ -1,4 +1,4 @@
 [
-  "test_add_new_contact.py::test_add_new_contact",
-  "test_add_new_contact.py::test_add_new_empty_contact"
+  "test_edit_contact.py::test_edit_first_contact_f_name",
+  "test_edit_contact.py::test_edit_first_contact_company"
 ]

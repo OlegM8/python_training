@@ -38,7 +38,7 @@ class SessionHelper:
 
     def is_logged_in_as(self, email):
         wd = self.app.wd
-        wd.find_element_by_class_name("nav-account ").click()
+        wd.get("https://www.postable.com/account/")
         return wd.find_element_by_class_name("request-email").text == email
 
     def ensure_login(self, email, password):
