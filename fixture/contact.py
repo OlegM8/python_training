@@ -54,7 +54,8 @@ class ContactHelper:
 
     def open_address_book(self):
         wd = self.app.wd
-        wd.find_element_by_xpath("//ul[@class='main-nav']//a[.='Address Book']").click()
+        if not (wd.current_url.endswith("contacts") and len(wd.find_elements_by_id("panel-contact-news")) > 0):
+            wd.find_element_by_xpath("//ul[@class='main-nav']//a[.='Address Book']").click()
 
     def count(self):
         wd = self.app.wd
