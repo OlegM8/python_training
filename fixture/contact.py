@@ -1,5 +1,4 @@
-
-
+from model.contact import Contact
 class ContactHelper:
 
     def __init__(self, app):
@@ -61,3 +60,14 @@ class ContactHelper:
         wd = self.app.wd
         self.open_address_book()
         return len(wd.find_elements_by_xpath("//ul[@id='address-book-list']/li"))
+
+    def get_contacts_list(self):
+        wd = self.app.wd
+        wd.get("https://www.postable.com/")
+        self.open_address_book()
+        contacts = []
+        for element in wd.find_elements_by_css_selector('.toggle-panel'):
+            text = element.text
+            idd = element.find_element_by_xpath("//ul[@id='address-book-list']/li").get_attribute('data-contact_id')
+            contacts.append(Contact(full_name=text, idd=idd))
+        return contacts
