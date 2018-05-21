@@ -66,8 +66,10 @@ class ContactHelper:
         wd.get("https://www.postable.com/")
         self.open_address_book()
         contacts = []
-        for element in wd.find_elements_by_css_selector('.toggle-panel'):
+        nu = 1
+        for element in wd.find_elements_by_css_selector(".toggle-panel"):
             text = element.text
-            idd = element.find_element_by_xpath("//ul[@id='address-book-list']/li").get_attribute('data-contact_id')
+            idd = element.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(nu) + "]").get_attribute('data-contact_id')
             contacts.append(Contact(full_name=text, idd=idd))
+            nu += 1
         return contacts
