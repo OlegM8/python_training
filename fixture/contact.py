@@ -69,7 +69,7 @@ class ContactHelper:
         nu = 1
         for element in wd.find_elements_by_css_selector(".toggle-panel"):
             text = element.text
-            idd = element.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(nu) + "]").get_attribute('data-contact_id')
-            contacts.append(Contact(full_name=text, idd=idd))
+            id = element.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(nu) + "]").get_attribute('data-contact_id')
+            contacts.append(Contact(full_name=text, id=id))
             nu += 1
         return contacts
