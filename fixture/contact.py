@@ -14,6 +14,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         # save new contact
         wd.find_element_by_css_selector("button.button-panel.button-save-contact ").click()
+        self.contact_cache = None
 
     def fill_contact_form(self, contact): # Contact(f_name="Edited name", l_name="Hui")
         wd = self.app.wd
@@ -35,6 +36,7 @@ class ContactHelper:
         # submit deletion
         wd.find_element_by_xpath("//div[@id='contact-info']/button[3]").click()
         wd.find_element_by_link_text("Yes, delete it!").click()
+        self.contact_cache = None
 
     def select_first_contact(self):
         wd = self.app.wd
@@ -50,6 +52,7 @@ class ContactHelper:
         self.fill_contact_form(edited_contact_data)
         # submit edit
         wd.find_element_by_xpath("//div[@id='panel-contact-edit']/div/button[1]").click()
+        self.contact_cache = None
 
     def open_address_book(self):
         wd = self.app.wd
@@ -58,18 +61,22 @@ class ContactHelper:
 
     def count(self):
         wd = self.app.wd
-        self.open_address_book()
-        return len(wd.find_elements_by_xpath("//ul[@id='address-book-list']/li"))
-
-    def get_contacts_list(self):
-        wd = self.app.wd
         wd.get("https://www.postable.com/")
         self.open_address_book()
-        contacts = []
-        nu = 1
-        for element in wd.find_elements_by_css_selector(".toggle-panel"):
-            text = element.text
-            id = element.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(nu) + "]").get_attribute('data-contact_id')
-            contacts.append(Contact(full_name=text, id=id))
-            nu += 1
-        return contacts
+        return len(wd.find_elements_by_css_selector(".toggle-panel"))
+
+    contact_cache = None
+
+    def get_contacts_list(self):
+        if self.contact_cache is None:
+            wd = self.app.wd
+            wd.get("https://www.postable.com/")
+            self.open_address_book()
+            self.contact_cache = []
+            nu = 1
+            for element in wd.find_elements_by_css_selector(".toggle-panel"):
+                text = element.text
+                id = element.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(nu) + "]").get_attribute('data-contact_id')
+                self.contact_cache.append(Contact(full_name=text, id=id))
+                nu += 1
+        return self.contact_cache
