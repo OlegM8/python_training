@@ -1,4 +1,5 @@
 from model.contact import Contact
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -30,9 +31,12 @@ class ContactHelper:
             wd.find_element_by_name(field_name).send_keys(text)
 
     def delete_first(self):
+        self.delete_by_index(0)
+
+    def delete_by_index(self, index):
         wd = self.app.wd
         self.open_address_book()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         # submit deletion
         wd.find_element_by_xpath("//div[@id='contact-info']/button[3]").click()
         wd.find_element_by_link_text("Yes, delete it!").click()
@@ -40,12 +44,21 @@ class ContactHelper:
 
     def select_first_contact(self):
         wd = self.app.wd
+        self.open_address_book()
         wd.find_element_by_xpath("//ul[@id='address-book-list']/li[1]").click()
 
-    def edit_first(self, edited_contact_data):
+    def select_contact_by_index(self, index):
         wd = self.app.wd
         self.open_address_book()
-        self.select_first_contact()
+        wd.find_elements_by_xpath("//ul[@id='address-book-list']/li")[index].click()
+
+    def edit_first(self):
+        self.edit_by_index(0)
+
+    def edit_by_index(self, index, edited_contact_data):
+        wd = self.app.wd
+        self.open_address_book()
+        self.select_contact_by_index(index)
         # open edit form
         wd.find_element_by_xpath("//div[@id='contact-info']/button[2]").click()
         # enter new values
@@ -75,8 +88,43 @@ class ContactHelper:
             self.contact_cache = []
             nu = 1
             for element in wd.find_elements_by_css_selector(".toggle-panel"):
-                text = element.text
-                id = element.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(nu) + "]").get_attribute('data-contact_id')
-                self.contact_cache.append(Contact(full_name=text, id=id))
+                text = element.find_element_by_xpath("//ul[@id='address-book-list']/li").get_attribute('data-keywords')
+                id = element.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(nu) + "]")\
+                    .get_attribute('data-contact_id')
+                all_info = text.split()
+                self.contact_cache.append(Contact(info=text, id=id,
+                                                  f_name=all_info[0], l_name=all_info[1], company=all_info[2]))
                 nu += 1
         return self.contact_cache
+
+    def open_edit_contact(self, index):
+        wd = self.app.wd
+        self.open_address_book()
+        self.select_contact_by_index(index)
+        wd.find_element_by_xpath("//div[@id='contact-info']/button[2]").click()
+
+    def get_info_from_edit(self, index):
+        wd = self.app.wd
+        self.open_edit_contact(index)
+        first_name = wd.find_element_by_name("contact[firstname]").get_attribute("value")
+        last_name = wd.find_element_by_name("contact[lastname]").get_attribute("value")
+        company = wd.find_element_by_name("contact[company]").get_attribute("value")
+        phone = wd.find_element_by_name("contact[phone]").get_attribute("value")
+        id = wd.find_element_by_xpath("//ul[@id='address-book-list']/li" + "[" + str(index+1) + "]")\
+            .get_attribute('data-contact_id')
+        info = first_name + " " + last_name + " " + company + "  "
+        return Contact(f_name=first_name, l_name=last_name, company=company, info=info, id=id, phone=phone)
+
+    def get_info_from_select(self, index):
+        wd = self.app.wd
+        wd.get("https://www.postable.com/")
+        self.open_address_book()
+        self.contact_cache = []
+        text = wd.find_element_by_xpath\
+            ("//ul[@id='address-book-list']/li" + "[" + str(index+1) + "]").get_attribute('data-keywords')
+        id = wd.find_element_by_xpath\
+            ("//ul[@id='address-book-list']/li" + "[" + str(index+1) + "]").get_attribute('data-contact_id')
+        all_info = text.split()
+        self.select_contact_by_index(index)
+        phone = wd.find_element_by_xpath("//div[@id='contact-info']/ul/li[1]/span").text
+        return Contact(info=text, id=id, f_name=all_info[0], l_name=all_info[1],company=all_info[2], phone=phone)
