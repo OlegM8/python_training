@@ -1,3 +1,10 @@
 [
-  "new_contacts_test.py::test_selected_list"
+  "test_calculator.py::test_addition",
+  "test_calculator.py::test_addition_float",
+  "test_calculator.py::test_addition_minus",
+  "test_calculator.py::test_subtraction",
+  "test_calculator.py::test_division",
+  "test_calculator.py::test_multiplication_float",
+  "test_calculator.py::test_multiplication",
+  "test_calculator.py::test_modulo"
 ]
