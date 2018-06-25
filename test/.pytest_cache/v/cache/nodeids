@@ -1,22 +1,4 @@
 [
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "test_del_contact.py::test_delete_some_contact"
-=======
-  "test_calculator.py::test_addition",
-  "test_calculator.py::test_addition_float",
-  "test_calculator.py::test_addition_minus",
-  "test_calculator.py::test_subtraction",
-  "test_calculator.py::test_division",
-  "test_calculator.py::test_multiplication_float",
-  "test_calculator.py::test_multiplication",
-  "test_calculator.py::test_modulo"
->>>>>>> a357c2c25e91ad19f1c2bfcb19274388fbbf7aa0
-=======
-  "new_contacts_test.py::test_selected_list"
->>>>>>> parent of 113f530... test
-=======
-  "test_del_contact.py::test_delete_some_contact"
->>>>>>> parent of ad2cac7... Merge branch 'master' of https://github.com/OlegM8/python_training
+  "test_add_new_contact.py::test_add_new_contact",
+  "test_add_new_contact.py::test_add_new_empty_contact"
 ]
