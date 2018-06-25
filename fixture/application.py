@@ -15,6 +15,7 @@ class Application:
         self.calculator = CalcHelper(self)
 >>>>>>> a357c2c25e91ad19f1c2bfcb19274388fbbf7aa0
 
+
     def is_valid(self):
         try:
             self.wd.current_url
