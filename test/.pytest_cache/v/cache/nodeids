@@ -1,6 +1,7 @@
 [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "test_del_contact.py::test_delete_some_contact"
 =======
   "test_calculator.py::test_addition",
@@ -15,4 +16,7 @@
 =======
   "new_contacts_test.py::test_selected_list"
 >>>>>>> parent of 113f530... test
+=======
+  "test_del_contact.py::test_delete_some_contact"
+>>>>>>> parent of ad2cac7... Merge branch 'master' of https://github.com/OlegM8/python_training
 ]

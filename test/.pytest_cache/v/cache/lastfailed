@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 {
   "contact2_test.py::test_add_new_contact": true,
   "test_edit_contact.py::test_edit_contact_f_name": true
 }
-=======
-{}
->>>>>>> a357c2c25e91ad19f1c2bfcb19274388fbbf7aa0

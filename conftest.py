@@ -11,13 +11,14 @@ def app(request):
     else:
         if not fixture.is_valid():
             fixture = Application()
-    fixture.session.open_homepage()
+    fixture.session.ensure_login(email="eltrabajo@mail.ru", password="password123")
     return fixture
 
 
 @pytest.fixture(scope="session", autouse=True)
 def stop(request):
     def fin():
+        fixture.session.ensure_logout()
         fixture.destroy()
     request.addfinalizer(fin)
     return fixture
