@@ -1,3 +1,14 @@
 [
+<<<<<<< HEAD
   "test_del_contact.py::test_delete_some_contact"
+=======
+  "test_calculator.py::test_addition",
+  "test_calculator.py::test_addition_float",
+  "test_calculator.py::test_addition_minus",
+  "test_calculator.py::test_subtraction",
+  "test_calculator.py::test_division",
+  "test_calculator.py::test_multiplication_float",
+  "test_calculator.py::test_multiplication",
+  "test_calculator.py::test_modulo"
+>>>>>>> a357c2c25e91ad19f1c2bfcb19274388fbbf7aa0
 ]

@@ -1,6 +1,6 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
-from fixture.contact import ContactHelper
+from fixture.calculator import CalcHelper
 
 
 class Application:
@@ -9,7 +9,11 @@ class Application:
         self.wd = webdriver.Chrome()
         self.wd.implicitly_wait(10)
         self.session = SessionHelper(self)
+<<<<<<< HEAD
         self.contact = ContactHelper(self)
+=======
+        self.calculator = CalcHelper(self)
+>>>>>>> a357c2c25e91ad19f1c2bfcb19274388fbbf7aa0
 
     def is_valid(self):
         try:
@@ -20,7 +24,7 @@ class Application:
 
     def open_homepage(self):
         wd = self.wd
-        wd.get("https://www.postable.com/")
+        wd.get("https://olegtesttr.000webhostapp.com/")
 
     def destroy(self):
         self.wd.quit()
