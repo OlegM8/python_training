@@ -1,4 +1,3 @@
 [
-  "test_edit_contact.py::test_edit_first_contact_f_name",
-  "test_edit_contact.py::test_edit_first_contact_company"
+  "test_del_contact.py::test_delete_first_contact"
 ]
