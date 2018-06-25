@@ -1,8 +1,4 @@
 [
-<<<<<<< HEAD
-  "test_del_contact.py::test_delete_first_contact"
-=======
-  "test_add_new_contact.py::test_add_new_contact",
-  "test_add_new_contact.py::test_add_new_empty_contact"
->>>>>>> e5e442de72aaec0bbeec304a99bc2f2127586553
+  "new_contacts_test.py::test_info_on_homepage",
+  "new_contacts_test.py::test_selected_list"
 ]
