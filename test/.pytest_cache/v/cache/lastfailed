@@ -1,4 +1,3 @@
 {
-  "contact2_test.py::test_add_new_contact": true,
-  "test_edit_contact.py::test_edit_contact_f_name": true
+  "new_contacts_test.py::test_info_on_homepage2": true
 }

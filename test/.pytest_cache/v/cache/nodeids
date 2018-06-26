@@ -1,3 +1,7 @@
 [
+<<<<<<< HEAD
+=======
+  "new_contacts_test.py::test_info_on_homepage",
+>>>>>>> fe9a84b808f15488dcd9531a5c6b7a3aae934ab5
   "new_contacts_test.py::test_selected_list"
 ]
