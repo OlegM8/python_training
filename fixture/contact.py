@@ -127,4 +127,5 @@ class ContactHelper:
         all_info = text.split()
         self.select_contact_by_index(index)
         phone = wd.find_element_by_xpath("//div[@id='contact-info']/ul/li[1]/span").text
-        return Contact(info=text, id=id, f_name=all_info[0], l_name=all_info[1],company=all_info[2], phone=phone)
+        return Contact(info=text, id=id, f_name=all_info[0], l_name=all_info[1],company=all_info[2],
+                       phone=phone)
