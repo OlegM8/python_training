@@ -7,10 +7,12 @@ fixture = None
 def app(request):
     global fixture
     if fixture is None:
-        fixture = Application()
+        browser = request.config.getoption("--browser")
+        baseURL = request.config.getoption("--baseURL")
+        fixture = Application(browser=browser, baseURL=baseURL)
     else:
         if not fixture.is_valid():
-            fixture = Application()
+            fixture = Application(browser=browser, baseURL=baseURL)
     fixture.session.ensure_login(email="eltrabajo@mail.ru", password="password123")
     return fixture
 
@@ -22,3 +24,8 @@ def stop(request):
         fixture.destroy()
     request.addfinalizer(fin)
     return fixture
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", action="store", default="chrome")
+    parser.addoption("--baseURL", action="store", default="https://www.postable.com/")

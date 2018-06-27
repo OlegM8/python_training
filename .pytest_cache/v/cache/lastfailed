@@ -7,6 +7,7 @@
   "ff.py::ff::test_ff": true,
   "test.py": true,
   "test/test_add_new_contact.py::test_add_new_contact": true,
+  "test/test_add_new_contact.py::test_add_new_contact[None:None;FNvToW;ChO]": true,
   "test/test_add_new_contact.py::test_add_new_empty_contact": true,
   "test_add_new_contact.py::test_add_new_contact": true,
   "test_add_new_contact.py::test_add_new_empty_contact": true,

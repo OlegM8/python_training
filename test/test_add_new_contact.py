@@ -12,7 +12,7 @@ def random_string(prefix, maxlen):
 
 testdata = [
     Contact(f_name=random_string("FN", 10), l_name=random_string("LN", 10), company=random_string("C", 10))
-    for i in range(5)
+    for i in range(1)
 ]
 
 
