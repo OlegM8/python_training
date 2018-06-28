@@ -1,3 +1,4 @@
 [
-  "test_add_new_contact.py::test_add_new_contact[None:None;FN];rgA+pJ;CwG=rZ]"
+  "test_add_new_contact.py::test_add_new_contact[None:None;f_name1;Company1]",
+  "test_add_new_contact.py::test_add_new_contact[None:None;f_name2;Company2]"
 ]
